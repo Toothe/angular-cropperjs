@@ -2,13 +2,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "downlevelIteration": true,
+    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -17,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "angular-cropperjs": [
-        "dist/angular-cropperjs"
+      "ngx-cropper-js": [
+        "dist/ngx-cropper-js"
       ],
-      "angular-cropperjs/*": [
-        "dist/angular-cropperjs/*"
+      "ngx-cropper-js/*": [
+        "dist/ngx-cropper-js/*"
       ]
     }
   }
