@@ -36,12 +36,12 @@
         "build_lib": "ng build --prod ngx-cropper-js",
         "npm_pack": "cd dist/ngx-cropper-js && npm pack",
         "package": "npm run build_lib && npm run npm_pack",
-        "prepare": "npm run package"
+        "prepare": "npm run package",
+        "postinstall": "cp -r ./dist/ngx-cropper-js/* ."
     },
     "files": [
         "dist/ngx-cropper-js/*"
     ],
-    "main": "dist/ngx-cropper-js/ngx-cropper-js.d.ts",
     "private": true,
     "dependencies": {
         "@angular/animations": "^8.2.14",
