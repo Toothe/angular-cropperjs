@@ -1,5 +1,5 @@
 {
-    "name": "ngx-cropper-js",
+    "name": "ngx-cropperjs-lib",
     "description": "CropperJS integration for Angular - fork",
     "version": "1.0.1",
     "repository": {
