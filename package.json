@@ -41,6 +41,7 @@
     "files": [
         "dist/ngx-cropper-js/*"
     ],
+    "main": "dist/ngx-cropper-js/ngx-cropper-js.d.ts",
     "private": true,
     "dependencies": {
         "@angular/animations": "^8.2.14",
