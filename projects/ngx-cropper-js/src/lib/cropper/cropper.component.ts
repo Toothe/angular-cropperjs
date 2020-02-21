@@ -1,18 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild, Input, EventEmitter, Output } from '@angular/core';
+import { Component, ViewEncapsulation, ElementRef, ViewChild, Input, EventEmitter, Output } from '@angular/core';
 import Cropper from 'cropperjs';
-import { CropperOptions } from './cropper.interface';
-
-export interface ImageCropperSetting {
-    width: number;
-    height: number;
-}
-
-export interface ImageCropperResult {
-    imageData: Cropper.ImageData;
-    cropData: Cropper.CropBoxData;
-    blob?: Blob;
-    dataUrl?: string;
-}
+import { CropperOptions, ImageCropperResult, ImageCropperSetting } from './cropper.interface';
 
 @Component({
     selector: 'angular-cropper',
@@ -20,7 +8,7 @@ export interface ImageCropperResult {
     styleUrls: ['./cropper.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class CropperComponent implements OnInit {
+export class CropperComponent {
 
     @ViewChild('image', { static: true }) image: ElementRef;
 
@@ -33,22 +21,15 @@ export class CropperComponent implements OnInit {
     @Output() export = new EventEmitter<ImageCropperResult>();
     @Output() ready = new EventEmitter();
 
-    public isLoading: boolean = true;
     public cropper: Cropper;
     public imageElement: HTMLImageElement;
     public loadError: any;
-
-    constructor() { }
-
-    ngOnInit() {
-    }
+    public isLoading = true;
 
     /**
      * Image loaded
-     * @param ev
      */
-    imageLoaded(ev: Event) {
-
+    public imageLoaded(ev: Event) {
         //
         // Unset load error state
         this.loadError = false;
@@ -60,7 +41,9 @@ export class CropperComponent implements OnInit {
 
         //
         // Add crossOrigin?
-        if (this.cropperOptions.checkCrossOrigin) image.crossOrigin = 'anonymous';
+        if (this.cropperOptions.checkCrossOrigin) {
+            image.crossOrigin = 'anonymous';
+        }
 
         //
         // Image on ready event
@@ -110,9 +93,8 @@ export class CropperComponent implements OnInit {
 
     /**
      * Image load error
-     * @param event
      */
-    imageLoadError(event: any) {
+    public imageLoadError(event: any) {
 
         //
         // Set load error state
@@ -125,10 +107,8 @@ export class CropperComponent implements OnInit {
 
     /**
      * Export canvas
-     * @param base64
      */
-    exportCanvas(base64?: any) {
-
+    public exportCanvas(base64?: any) {
         //
         // Get and set image, crop and canvas data
         const imageData = this.cropper.getImageData();
