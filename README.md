@@ -1,13 +1,13 @@
 # angular-cropperjs
 
-[CropperJS](https://fengyuanchen.github.io/cropperjs/) integration for Angular +6
+[CropperJS](https://fengyuanchen.github.io/cropperjs/) integration for Angular +9
 
 ## How to use
 
 1- Install the library:
 
 ```bash
-$ npm install angular-cropperjs --save
+$ npm install Toothe/ngx-cropper-js --save
 ```
 
 2- Import and load `AngularCropperjsModule` in the module you want to use, for example `AppModule`:
