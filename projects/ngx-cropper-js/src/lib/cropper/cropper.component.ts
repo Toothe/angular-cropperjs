@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild, Input, EventEmitter, Output } from '@angular/core';
 import Cropper from 'cropperjs';
+import { CropperOptions } from './cropper.interface';
 
 export interface ImageCropperSetting {
     width: number;
@@ -27,7 +28,7 @@ export class CropperComponent implements OnInit {
     @Input() settings: ImageCropperSetting;
     @Input() cropbox: Cropper.CropBoxData;
     @Input() loadImageErrorText: string;
-    @Input() cropperOptions: any = {};
+    @Input() cropperOptions: CropperOptions = {};
 
     @Output() export = new EventEmitter<ImageCropperResult>();
     @Output() ready = new EventEmitter();
