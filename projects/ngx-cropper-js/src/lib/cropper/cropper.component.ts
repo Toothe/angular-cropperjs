@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation, ElementRef, ViewChild, Input, EventEmitter, Output } from '@angular/core';
+import { Component, ViewEncapsulation, ElementRef, ViewChild, Input, EventEmitter, Output, OnChanges, SimpleChanges } from '@angular/core';
 import Cropper from 'cropperjs';
 import { CropperOptions, ImageCropperResult, ImageCropperSetting } from './cropper.interface';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
     selector: 'angular-cropper',
@@ -8,7 +9,7 @@ import { CropperOptions, ImageCropperResult, ImageCropperSetting } from './cropp
     styleUrls: ['./cropper.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class CropperComponent {
+export class CropperComponent implements OnChanges {
 
     @ViewChild('image', { static: true }) image: ElementRef;
 
@@ -25,9 +26,16 @@ export class CropperComponent {
     public imageElement: HTMLImageElement;
     public loadError: any;
     public isLoading = true;
+    public safeImageUrl: SafeUrl;
 
-    public constructor() {
-        console.log(this.imageUrl);
+    public constructor(private Sanitizer: DomSanitizer) {
+    }
+
+    public ngOnChanges(changes: SimpleChanges): void {
+        if (changes.imageUrl && changes.imageUrl.previousValue !== changes.imageUrl.currentValue) {
+            this.safeImageUrl = this.Sanitizer.bypassSecurityTrustUrl(changes.imageUrl.currentValue);
+            console.log(this.safeImageUrl);
+        }
     }
 
     /**
