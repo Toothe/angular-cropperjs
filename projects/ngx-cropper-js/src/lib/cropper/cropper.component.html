@@ -11,6 +11,6 @@
 
     <!-- CROPPER -->
     <div class="cropper">
-        <img #image alt="image" [src]="imageUrl" (load)="imageLoaded($event)" (error)="imageLoadError($event)" />
+        <img #image alt="image" [src]="safeImageUrl" (load)="imageLoaded($event)" (error)="imageLoadError($event)" />
     </div>
 </div>
