@@ -26,6 +26,10 @@ export class CropperComponent {
     public loadError: any;
     public isLoading = true;
 
+    public constructor() {
+        console.log(this.imageUrl);
+    }
+
     /**
      * Image loaded
      */
