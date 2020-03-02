@@ -34,7 +34,6 @@ export class CropperComponent implements OnChanges {
     public ngOnChanges(changes: SimpleChanges): void {
         if (changes.imageUrl && changes.imageUrl.previousValue !== changes.imageUrl.currentValue) {
             this.safeImageUrl = this.Sanitizer.bypassSecurityTrustUrl(changes.imageUrl.currentValue);
-            console.log(this.safeImageUrl);
         }
     }
 
