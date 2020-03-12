@@ -1,7 +1,7 @@
 {
     "name": "ngx-cropper-js",
     "description": "CropperJS integration for Angular - fork",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/Toothe/ngx-cropper-js"
