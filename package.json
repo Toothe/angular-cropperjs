@@ -27,7 +27,7 @@
     "url": "https://github.com/Toothe/ngx-cropper-js/issues"
   },
   "files": [
-    "dist/*"
+    "dist/ngx-cropper-js/*"
   ],
   "main": "dist/ngx-cropper-js/bundles/ngx-cropper-js.umd.js",
   "module": "dist/ngx-cropper-js/fesm5/ngx-cropper-js.js",
